@@ -44,8 +44,8 @@ func readInput() (map[p]string, int, int) {
 func answer1(grid map[p]string, height int, width int) {
 	answer := 0
 
-	for i := 0; i < height; i++ {
-		for j := 0; j < width; j++ {
+	for i := range height {
+		for j := range width {
 			rolls := 0
 			if grid[p{i, j}] == "." {
 				continue
@@ -76,8 +76,8 @@ func answer2(grid map[p]string, height int, width int) {
 
 	for {
 		var to_be_removed []p
-		for i := 0; i < height; i++ {
-			for j := 0; j < width; j++ {
+		for i := range height {
+			for j := range width {
 				rolls := 0
 				if grid[p{i, j}] == "." {
 					continue
@@ -96,7 +96,7 @@ func answer2(grid map[p]string, height int, width int) {
 				}
 				if rolls < 4 {
 					answer++
-					to_be_removed = append(to_be_removed, p{i,j})
+					to_be_removed = append(to_be_removed, p{i, j})
 				}
 			}
 		}
